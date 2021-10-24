@@ -1,0 +1,26 @@
+.list {
+}
+
+li {
+  margin-top: 15px;
+}
+
+.button {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 50px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: rgb(31, 134, 28);
+  color: aliceblue;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.button:hover,
+.button:focus {
+  background-color: rgb(94, 248, 80);
+  color: white;
+
+  transition: all 250ms linear;
+}

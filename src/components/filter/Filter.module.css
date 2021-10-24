@@ -1,0 +1,9 @@
+.label {
+  width: 300px;
+  font-size: 18px;
+}
+
+.input {
+  display: flex;
+  margin-top: 20px;
+}

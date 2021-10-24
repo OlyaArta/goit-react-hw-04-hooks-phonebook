@@ -1,0 +1,45 @@
+.form {
+  border: 2px solid greenyellow;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.label {
+  width: 300px;
+  font-size: 18px;
+}
+
+.label:not(:first-child) {
+  margin-top: 20px;
+}
+
+.input {
+  width: 300px;
+}
+
+.input:hover,
+.input:focus {
+  border-radius: 4px;
+
+  transition: all 250ms linear;
+}
+
+.btn {
+  margin-top: 20px;
+  width: 100px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: rgb(31, 134, 28);
+  color: aliceblue;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: rgb(94, 248, 80);
+  color: white;
+
+  transition: all 250ms linear;
+}
