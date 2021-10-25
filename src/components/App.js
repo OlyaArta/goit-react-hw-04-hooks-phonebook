@@ -6,13 +6,13 @@ import ContactList from "./contactList/ContactList";
 import Filter from "./filter/Filter";
 
 function App() {
-  const [contact, setContact] = useState(() => {
-    return JSON.parse(window.localStorage.getItem("contact")) ?? "";
+  const [contacts, setContact] = useState(() => {
+    return JSON.parse(window.localStorage.getItem("contacts")) ?? "";
   });
 
   useEffect(() => {
-    window.localStorage.setItem("contact", JSON.stringify(contact));
-  }, [contact]);
+    window.localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
 
   const addContact = ({ name, number }) => {
     const newContact = {
@@ -22,14 +22,13 @@ function App() {
     };
 
     // this.setState(({ contacts }) => {
-      if (contacts.some((contact) => contact.name === name)) {
-        return alert(`${name} is already in contacts!`);
-      }
-       
-        setContact(prevContact => [newContact, ...prevContact]),
-      
-    })
-  
+    if (contacts.some((contact) => contact.name === name)) {
+      return alert(`${name} is already in contacts!`);
+    }
+
+    setContact((prevContacts) => [newContact, ...contacts]);
+  };
+
   // this.setState(({ contacts }) => ({
   //   contacts: [newContact, ...contacts],
   // }));
@@ -48,8 +47,8 @@ function App() {
   };
 
   const deleteContact = (id) => {
-    setContact((prevContact) =>
-      prevContact.filter((contact) => contact.id !== id)
+    setContact((prevContacts) =>
+      prevContacts.filter((contact) => contact.id !== id)
     );
   };
 
@@ -64,6 +63,6 @@ function App() {
       <ContactList contacts={results} onDeleteContact={deleteContact} />
     </Container>
   );
-  }
+}
 
 export default App;
