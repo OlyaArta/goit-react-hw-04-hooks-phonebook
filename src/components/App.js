@@ -6,9 +6,15 @@ import ContactList from "./contactList/ContactList";
 import Filter from "./filter/Filter";
 
 function App() {
-  const [contacts, setContact] = useState(() => {
-    return JSON.parse(window.localStorage.getItem("contacts")) ?? "";
-  });
+  const [contacts, setContact] = useState([]);
+
+  useEffect(() => {
+    const contacts = localStorage.getItem("contacts");
+    const parsedContacts = JSON.parse(contacts);
+    if (parsedContacts) {
+      setContact(parsedContacts);
+    }
+  }, []);
 
   useEffect(() => {
     window.localStorage.setItem("contacts", JSON.stringify(contacts));
